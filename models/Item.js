@@ -10,7 +10,7 @@ const itemSchema = new mongoose.Schema({
     required: true,
   },
   countInStock: {
-    type: String,
+    type: integer,
     required: true,
     default: "1",
   },

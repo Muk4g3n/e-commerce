@@ -48,6 +48,9 @@ app.use(flash());
 //routes
 app.use("/", require("./routes/index"));
 app.use("/users", require("./routes/users"));
+app.use("/admin",require("./routes/admin"));
+app.use("/buy",require("./routes/buy"));
+
 
 const PORT = process.env.PORT || 5000;
 

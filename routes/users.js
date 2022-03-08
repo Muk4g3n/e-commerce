@@ -2,7 +2,7 @@ const router = require("express").Router();
 const mongoose = require("mongoose");
 const User = require("../models/User");
 const passport = require("passport");
-const { ensureNotAuth } = require("../config/auth");
+const { ensureNotAuth, ensureAuth } = require("../config/auth");
 //get login
 router.get("/login", ensureNotAuth, (req, res) => {
   res.render("login");
@@ -11,6 +11,16 @@ router.get("/login", ensureNotAuth, (req, res) => {
 router.get("/register", ensureNotAuth, (req, res) => {
   res.render("register");
 });
+
+router.get("/editprofile",ensureAuth,(req,res)=>{
+  res.render("profile editing");
+}
+);
+router.get("/ClientSpace",ensureAuth,(req,res)=>{
+  res.render("Client Space");
+}
+);
+
 
 //register handle
 router.post("/register", (req, res) => {

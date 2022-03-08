@@ -10,11 +10,14 @@ router.get("/", (req, res) => {
     })
     .catch((err) => console.log(err));
 });
-
-//add product route
-router.get("/addproduct", ensureAuth, (req, res) => {
-  res.render("addproduct");
+router.get("/about", (req, res) => {
+  console.log("about page");
 });
+
+router.get("/terms", (req, res) => {
+  console.log("terms page");
+});
+
 
 //item route
 router.get("/product/:id", (req, res) => {
@@ -29,16 +32,5 @@ router.get("/product/:id", (req, res) => {
     .catch((err) => console.log(err));
 });
 
-// handle adding a product
-router.post("/addproduct", (req, res) => {
-  const { name, description, price } = req.body;
-  const newProduct = new Item({ name, description, price });
-  newProduct
-    .save()
-    .then((product) => {
-      res.render("item", { newProduct });
-    })
-    .catch((err) => console.log(err));
-});
 
 module.exports = router;
